@@ -1,0 +1,218 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+\usepackage{bbold}
+
+\title{The Riemann Zeta Function }
+
+
+\author{Mark Glover}
+\date{}
+
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+The Riemann zeta function is a function that has been studied for centuries, and was popularized by Leonhard Euler for his work on the Basel problem. At the time, it was only considered for its real solutions. This was until Bernhard Riemann's 1859 article, "On the Number of Primes Less Than a Given Magnitude," where he extended the function into the complex plane. In this paper, I will discuss the early uses of the function, the method of analytic continuation to expand the function beyond where it was originally defined, and discuss the Riemann hypothesis. In addition, due to the importance of the Riemann hypothesis, the paper will cover various fields where the truth of the hypothesis would make many new discoveries in mathematics.
+\end{abstract}
+
+\section*{1 Introduction}
+The Riemann zeta function is defined as a function of a complex variable with the equation
+
+$$
+\zeta(s)=\sum_{n=1}^{\infty} \frac{1}{n^{s}}
+$$
+
+for $\operatorname{Re}(s)>1$. Otherwise, the use of analytic continuation is used to make the function defined over the entire domain of $\mathbb{C}$. The main focus is the use of $s$ as a complex number, $a+i b$, in the function, where it is still defined when $a>1$. To continue the function analytically, one must ensure that only one extension has a derivative everywhere. Geometrically, this means that two intersecting lines preserve the same angle or a multiple of the same angle after the transformation[1].
+
+One problem that arises from this function is when it equals 0 , outside of the trivial zeros that are found at $s=-2 k$ where $k \in \mathbb{N}$. The non-trivial zeros have been proven to lie on the critical strip, defined as
+
+$$
+\{s \in \mathbb{C} \mid 0<\zeta(s)<1\}
+$$
+
+The Riemann hypothesis claims that all non-trivial zeros lie on the critical line within the critical strip, defined as [1]
+
+$$
+\left\{s \in \mathbb{C} \left\lvert\, \zeta(s)=\frac{1}{2}\right.\right\}
+$$
+
+This problem gives rise to the understanding about the distribution of prime numbers. Many other problems in mathematics would be proved by the proof of this hypothesis. The function itself is important in many fields, such as applied statistics, physics, and cryptography.
+
+\section*{2 The Basel Problem}
+Before Riemann, mathematician Leonhard Euler solved the Basel Problem, which uses the zeta function, which was proposed in 1644. Ninety years later, Euler would solve it. For the problem, we examine
+
+$$
+\zeta(2)=\sum_{n=1}^{\infty} \frac{1}{n^{2}}
+$$
+
+Since Euler was born in Basel, Switzerland, the problem was named after him. He found this to be a converging series equaling $\frac{\pi^{2}}{6}$.
+
+Proof.
+
+$$
+\begin{gathered}
+\sin (\pi x)=\pi x\left(1-x^{2}\right)\left(1-\frac{x^{2}}{4}\right)\left(1-\frac{x^{2}}{9}\right) \ldots \\
+=\pi x-\pi x^{3}\left[1+\frac{1}{4}+\frac{1}{9} \ldots\right]+\pi x^{5}\left[\frac{1}{1 * 4}+\frac{1}{1 * 9}+\ldots+\frac{1}{4 * 9}+\ldots\right]+\ldots \\
+\sin (\pi x)=\pi x-\frac{(\pi x)^{3}}{3!}+\frac{(\pi x)^{5}}{5!}-\ldots \\
+=\pi x-\frac{\pi^{3}}{6} x^{3}+\frac{\pi^{5}}{120} x^{5}-\ldots
+\end{gathered}
+$$
+
+Notice,
+
+$$
+\begin{gathered}
+\sin (\pi x)=\pi x\left(1-x^{2}\right)\left(1-\frac{x^{2}}{4}\right)\left(1-\frac{x^{2}}{9}\right) \ldots \\
+=\pi x-\pi x^{3}\left[1+\frac{1}{4}+\frac{1}{9} \ldots\right]+\pi x^{5}\left[\frac{1}{1 * 4}+\frac{1}{1 * 9}+\ldots+\frac{1}{4 * 9}+\ldots\right]+\ldots \\
+\sin (\pi x)=\pi x-\frac{(\pi x)^{3}}{3!}+\frac{(\pi x)^{5}}{5!}-\ldots \\
+=\pi x-\frac{\pi^{3}}{6} x^{3}+\frac{\pi^{5}}{120} x^{5}-\ldots
+\end{gathered}
+$$
+
+Thus,
+
+$$
+\pi\left[1+\frac{1}{4}+\frac{1}{9}+\ldots\right]=\frac{\pi^{3}}{6} \Longrightarrow 1+\frac{1}{4}+\frac{1}{9}+\ldots=\frac{\pi^{2}}{6}
+$$
+
+Therefore, $[2]$
+
+$$
+\zeta(2)=\sum_{n=1}^{\infty} \frac{1}{n^{2}}=\frac{\pi^{2}}{6}
+$$
+
+More rigorous proofs by Euler have been able to conclude that $\zeta(2 k)$ is always a rational multiple of $\pi^{2 k}$. Furthermore, with the knowledge that $\pi$ and its integer powers are transcendental, we know that $\zeta(2 k)$ is irrational and transcendental $\forall k \geq 1$.
+
+\section*{3 Analytic Continuation}
+It's been proven that the Riemann zeta function is well-defined for $s>1$. This includes the complex numbers, so long as for $s=a+b i, a>1$. However, Riemann was interested in extending the function to cover the entire complex plane, which is where the idea of analytic continuation stems from. In complex analysis, raising a number to a complex number involves rotation around the unit circle, which allows them to still converge in the context of the zeta function. This creates spirals when visualizing such functions.
+
+As previously mentioned, complex functions that have a derivative everywhere are called "analytic." This restriction is what allows us to continue the Riemann zeta function for values $s<1$. To understand this concept geometrically, take two intersecting lines before being transformed by a complex function. Naturally, they will form some angle where they intersect. An analytic function is one where, after the transformation of these lines, the angle they originally intersected is still preserved. Thus, they have a derivative everywhere. The exception to this geometric interpretation is when the derivative of the function is zero, where the angle will not be the exact same value, but that value multiplied by some $k \in \mathbb{Z}$. Many functions are analytic, including $\sin (x), e^{x}$, polynomials, and, of course, the Riemann zeta function.
+
+\section*{4 Riemann's Functional Equation}
+To help study this function, mathematicians use the formula derived by Riemann that converts the sum into a functional equation.
+
+Proof. We use
+
+$$
+\zeta(s)=-s \int_{0}^{\infty} x^{-s-1}\{x\} d x, 0<R(s)<1
+$$
+
+where $\{x\}$ is the fractional part. That is, it returns the integer part of any decimal number. We define $R(s)$ as the real part of $s$.
+
+Then,
+
+$$
+\begin{gathered}
+\left(2^{s}-1\right) \frac{\zeta(s)}{s}=\int_{0}^{\infty} x^{-s-1}(\{x\}-\{2 x\}) d x \\
+=\int_{0}^{\infty} x^{-s-1} \sum_{n=1}^{\infty} \frac{1}{n \pi}(\sin (4 n \pi x)-\sin (2 n \pi x) d x, 0<R(s)<1
+\end{gathered}
+$$
+
+This uses a Fourier series for the fractional part. Continuing, we have
+
+$$
+\left(2^{s}-1\right) \frac{\zeta(s)}{s}=\sum_{n=1}^{\infty} \frac{1}{n \pi} \int_{0}^{\infty} x^{-s-1}(\sin (4 n \pi x)-\sin (2 n \pi x) d x
+$$
+
+We are able to interchange integrals and partial sums due to the fact that the partial sums are uniformly bounded.
+
+Then we have,
+
+$$
+\sum_{n=1}^{\infty} \frac{1}{n \pi}\left(2^{s}-2^{2 s}\right) \Gamma(-s) \sin \left(\frac{\pi s}{2} n^{s} \pi^{s}\right)
+$$
+
+$$
+=\left(2^{s}-2^{2 s}\right) \pi^{s-1} \Gamma(-s) \sin \frac{\pi s}{2} \zeta(1-s), 0<R(s)<1
+$$
+
+We then use the fact that
+
+$$
+\int_{0}^{\infty} x^{s-1} \sin (x) d x=\Gamma(s) \sin \frac{\pi s}{2},-1<R(s)<1, s \neq 0 .
+$$
+
+Thus,[4]
+
+$$
+\zeta(s)=2^{s} \pi^{s-1} \sin \frac{\pi s}{2} \Gamma(1-s) \zeta(1-s), 0<R(s)<1
+$$
+
+This functional equation allows us to use analytic continuation for all complex values except $s=1$.
+
+\section*{5 The Riemann Hypothesis}
+The Riemann hypothesis claims that all nontrivial solutions of the equation $\zeta(s)=0$ lie on a vertical straight line with $\left\{s \in \mathbb{C} \left\lvert\, R(s)=\frac{1}{2}\right.\right\}$. This has been checked, by computers, for the first $10^{13}$ solutions. This problem is considered one of the most important in modern day mathematics, as it would prove many results that depend on its validity. It is one of the seven millennium problems, where anyone who can prove or disprove the assertion wins one million dollars. All it would take is one counterexample to disprove Riemann's claim.
+
+"Trivial" solutions are negative even integers. That is, it has been proven that
+
+$$
+\zeta(s)=0, \forall s \in \mathbb{Z}^{-}|s=2 k-1| k \in \mathbb{N}
+$$
+
+Thus, mathematicians are more interested in the aforementioned critical strip, where it has been proven that all nontrivial solutions lie. This strip is between 0 and 1. However, the only ones to have been found contain the real part $\frac{1}{2}$. Trillions of zeros have been found on this single vertical line. Listed below are some of the first few that have been found $[3]$.
+
+\begin{center}
+\begin{tabular}{||c||}
+\hline
+First few nontrivial zeros \\
+\hline\hline
+$\frac{1}{2} \pm 14.134725 i$ \\
+\hline
+$\frac{1}{2} \pm 21.022040 i$ \\
+\hline
+$\frac{1}{2} \pm 25.010858 i$ \\
+\hline
+$\frac{1}{2} \pm 30.424876 i$ \\
+\hline
+$\frac{1}{2} \pm 32.935062 i$ \\
+\hline
+\end{tabular}
+\end{center}
+
+The next section will discuss the applications of the proof of this hypothesis in other fields.
+
+\section*{6 Applications}
+\subsection*{6.1 Prime Number Distribution}
+Many of the applications of the Riemann hypothesis stem from the fact that it is closely related to the distribution of prime numbers. Proving it would provide insights into\\
+the locations of prime numbers and their distance between each other. The significance of the Riemann Hypothesis in understanding the distribution of prime numbers lies in the connection between the zeta function and the prime-counting function $\pi(x)$, which gives the number of primes less than or equal to a given real number $x$. This connection is established through the explicit formula, which relates $\pi(x)$ to the nontrivial zeros of the Riemann zeta function:
+
+$$
+\pi(x)=L_{i}(x)-\sum_{p=1}^{\infty} L_{i}\left(x^{p}\right)-\log (2)+\int_{x}^{\infty} \frac{d t}{t\left(t^{2}-1\right) \log (t)}
+$$
+
+Here, $L_{i}(x)$ is the logarithmic integral function, the sum is taken over all nontrivial zeros $p$ of the zeta function, and the integral term accounts for the contribution of the trivial zeros [6]. The studying of prime numbers is one of the most important aspects of many fields, including cryptography and data encryption.
+
+\subsection*{6.2 Physics}
+Furthermore, the Riemann hypothesis may have implications in quantum physics, particularly in the study of the energy levels of quantum systems, as the distribution of zeros of the Riemann zeta function is related to the behavior of these systems. For example, the Casimir effect is a quantum phenomenon that results from the vacuum fluctuations of the electromagnetic field between closely spaced conducting plates. The Riemann zeta function appears in the expression for the Casimir force, helping to describe the interaction between the plates. "In its simplest form, the Casimir effect is an attractive interaction between two uncharged and perfectly conducting plates held a short distance apart[5]."
+
+\subsection*{6.3 Computational Algorithm Speed}
+Computational efficiency is another area of study that would be aided by the proof of this hypothesis. It could lead to more efficient algorithms for various mathematical and computational problems related to prime numbers. The Riemann zeta function and its properties are connected to number theory, which, in turn, is relevant in algorithms related to integer factorization. Factoring large numbers is crucial in cryptography (for example, in RSA encryption) [7]. Although the direct use of the zeta function might not be common, its underlying principles in number theory contribute to the development of algorithms for integer factorization.
+
+\section*{7 Conclusion}
+Although the Riemann zeta function has existed for centuries, it still creates mysteries in the modern day. The Riemann hypothesis remains one of maths most fascinating problems, and mathematicians at the top of their fields continue to work to figure it out. Just one counterexample would provide insight into dozens of fields of mathematics. However, this would be an interesting result, as most theories hinge on the fact that the\\
+hypothesis is true. Regardless, one million dollars still awaits anyone that can figure it out. Outside of the Riemann hypothesis, the function has given rise to generalizations of other series and functions that have been useful in analytic number theory, physics, and statistics.
+
+\section*{References}
+[1] E. Bombieri, Problems of the Millennium: the Riemann Hypothesis, Clay Mathematics Institution, 2013.
+
+[2] B. Sullivan, The Basel Problem: Numerous Proofs, Carnegie Mellon University, 2013.
+
+[3] E. Weisstein, Riemann Zeta Function Zeros, MathWorld-A Wolfram Web Resource, 2023 .
+
+[4] B. Riemann, On the Number of Prime Numbers less than a Given Quantity., Monatsberichte der Berliner Akademie, 1859.
+
+[5] A. Stange, D. Campbell, D. Bishop, Science and technology of the Casimir effect, Physics Today, 2021.
+
+[6] E.C. Titchmarsh The Theory of Functions, 2nd ed., Oxford University Press, 1960.
+
+[7] M. Cobb RSA algorithm (Rivest-Shamir-Adleman), Tech Target Security, 2021.
+
+
+\end{document}
